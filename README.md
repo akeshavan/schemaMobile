@@ -19,7 +19,7 @@ react-native run-ios
 
 you should see the iOS simulator start up and load an activity:
 
-![activityios](./docs/images/activitiesDemi.gif)
+![activityios](./docs/images/activitiesDemo.gif)
 
 The components that make up the example above are:
 
