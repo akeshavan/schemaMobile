@@ -13,13 +13,6 @@ import { Screen } from '../Screen';
  * it is also in change of _navigation_ and showing a progress bar.
  */
 
-
-/**
-* right now, we've hard-coded an activity, but eventually, we need to
-* pull this out and make it a prop to our component.
-*/
-const srcUrl = 'https://raw.githubusercontent.com/ReproNim/schema-standardization/master/activities/PHQ-9/phq9_schema.jsonld';
-
 class Activity extends Component {
   state = {
     /**
@@ -60,6 +53,7 @@ class Activity extends Component {
    * state.items
    */
   getActivities() {
+    const { srcUrl } = this.props;
     this.setState({ status: 'loading' });
     jsonld.expand(srcUrl).then((resp) => {
       // this.setState({ activity: resp[0] });

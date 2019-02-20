@@ -7,10 +7,11 @@ import { AppRegistry } from 'react-native';
 import React from 'react';
 import { Activity } from './src/components/Activity';
 import { name as appName } from './app.json';
+import config from './src/config';
 
 export default function Main() {
   return (
-    <Activity />
+    <Activity srcUrl={config.activityUrl} />
   );
 }
 

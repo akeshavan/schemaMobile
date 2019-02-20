@@ -36,6 +36,16 @@ where you can import them with `npm` on other react-native projects.
 
 You'll notice that the only widget we have is the **Radio** component. How do you add a new component?
 
+#### Step 0: Prepare your schema
+
+Prepare a jsonld schema file that describes the various screens of an activity. Check out some examples at:
+
+https://github.com/ReproNim/schema-standardization/tree/master/activities
+
+You should copy/paste the raw github link to the `_schema.jsonld` file in one of those folders.
+
+Once you have the link, copy/paste it into the `src/config.js` file in the `activityURL` key.
+
 #### Step 1: Create a new folder
 
 Create a new folder in the `src` directory. That follows this pattern:
@@ -71,11 +81,16 @@ src/components/
     └── index.js
 ```
 
+#### Step 2: Create the README and index.js files
+
+
 The README.md file of course contains documentation for the widget. The index.js file should only have:
 
 ```javascript
 export * from './newWidget';
 ```
+
+#### Step 3: Create the new widget
 
 the `newWidget.js` file should export a named react component. Take a look at the template below and modify:
 
@@ -123,13 +138,16 @@ export { newWidget };
 
 ```
 
+#### Step 4: Wire it up
+
+
 Next, we need to wire this widget up to the InputSelector, so it knows to map the Screen's `inputType` to your `newWidget`.
 
 in `src/InputSelector/InputSelector.js`, in the `renderInput` method, import your widget:
 
 ```javascript
 
-import { newWidget } from '../newWidget`;
+import { newWidget } from '../newWidget';
 
 ```
 
@@ -167,6 +185,8 @@ Then, hook it up to the `renderInput` method which decides with widget is placed
     return this.renderUnknown();
   }
 ```
+
+#### Step 6: Send a Pull Request!
 
 Test out your app, and send a pull request when your new component is good to go! We'll use [bit](https://bitsrc.io/)
 to build your new component so it can be installed via `npm` in the **mindlogger-app**. Thanks!!
