@@ -44,11 +44,14 @@ class InputSelector extends Component {
   renderUnknown() {
     const { inputType } = this.props;
     return (
-      <Text>
-        We do not know how to render a
-        {inputType}
-        !
-      </Text>
+      <View>
+        <Text>
+          We do not know how to render this UI component:
+        </Text>
+        <Text style={{ backgroundColor: 'lightyellow', padding: 10 }}>
+          {inputType}
+        </Text>
+      </View>
     );
   }
 

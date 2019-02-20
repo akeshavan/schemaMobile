@@ -94,8 +94,9 @@ class Screen extends Component {
     return jsonld.expand(url).then((resp) => {
       const question = resp[0]['http://schema.org/question'][0]['@value'];
       const inputType = resp[0]['https://schema.repronim.org/inputType'][0]['@value'];
-      return jsonld.expand(resp[0]['https://schema.repronim.org/valueconstraints'][0]['@id'])
-        .then((c) => {
+
+      if (Object.keys(resp[0]['https://schema.repronim.org/valueconstraints'][0]).indexOf('@id') > -1) {
+        return jsonld.expand(resp[0]['https://schema.repronim.org/valueconstraints'][0]['@id']).then((c) => {
           this.setState({
             question,
             inputType,
@@ -103,6 +104,15 @@ class Screen extends Component {
             status: 'ready',
           });
         });
+      }
+
+      this.setState({
+        question,
+        inputType,
+        constraints: resp[0]['https://schema.repronim.org/valueconstraints'][0],
+        status: 'ready',
+      });
+      return null;
     });
   }
 
