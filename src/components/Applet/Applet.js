@@ -25,7 +25,6 @@ import { Activity } from '../Activity';
  * eventually, this should become a jsonld file for an activitiy set
  * (aka applet)
  */
-import allActivities from '../../repronimActivities.json';
 
 /**
  * here are some styles for the modal that will show an activity
@@ -144,6 +143,7 @@ class Applet extends Component {
    */
   render() {
     const { modalVisible, url } = this.state;
+    const { allActivities } = this.props;
     return (
       <View style={{ backgroundColor: '#f0f0f0', flex: 1 }}>
         <Appbar.Header style={{ backgroundColor: DefaultTheme.colors.background }}>

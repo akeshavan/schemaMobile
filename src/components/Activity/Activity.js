@@ -57,9 +57,10 @@ class Activity extends Component {
     this.setState({ status: 'loading' });
     jsonld.expand(srcUrl).then((resp) => {
       // this.setState({ activity: resp[0] });
+      const preamble = resp[0]['http://schema.repronim.org/preamble'][0]['@value'];
       const items = _.map(resp[0]['https://schema.repronim.org/order'][0]['@list'],
         i => i['@id']);
-      this.setState({ items, status: 'ready' });
+      this.setState({ items, status: 'ready', preamble });
     });
   }
 
@@ -172,14 +173,18 @@ class Activity extends Component {
       index,
       animationDirection,
       responses,
+      preamble,
     } = this.state;
     return (
       <View style={{
         backgroundColor: 'white', flex: 1,
       }}
       >
+        <View style={{ flex: 1, padding: 10 }}>
+          <Text style={{ fontSize: 15, fontWeight: '300' }}>{preamble}</Text>
+        </View>
         <View style={{
-          flex: 7,
+          flex: 8,
           justifyContent: 'center',
           alignItems: 'center',
           padding: 10,

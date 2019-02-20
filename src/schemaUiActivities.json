@@ -1,0 +1,6 @@
+[
+  "https://raw.githubusercontent.com/ReproNim/schema-standardization/master/activities/NDA/nda_guid.jsonld",
+  "https://raw.githubusercontent.com/ReproNim/schema-standardization/master/activities/PHQ-9/phq9_schema.jsonld",
+  "https://raw.githubusercontent.com/ReproNim/schema-standardization/master/activities/PHQ-9a/phq9a_schema.jsonld",
+  "https://raw.githubusercontent.com/ReproNim/schema-standardization/master/activities/PHQ-8/phq8_schema.jsonld"
+]
