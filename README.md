@@ -186,7 +186,7 @@ Then, hook it up to the `renderInput` method which decides with widget is placed
   }
 ```
 
-#### Step 6: Send a Pull Request!
+#### Step 5: Send a Pull Request!
 
 Test out your app, and send a pull request when your new component is good to go! We'll use [bit](https://bitsrc.io/)
 to build your new component so it can be installed via `npm` in the **mindlogger-app**. Thanks!!
