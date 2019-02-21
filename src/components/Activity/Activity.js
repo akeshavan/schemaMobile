@@ -57,8 +57,13 @@ class Activity extends Component {
     this.setState({ status: 'loading' });
     jsonld.expand(srcUrl).then((resp) => {
       // this.setState({ activity: resp[0] });
-      const preamble = resp[0]['http://schema.repronim.org/preamble'][0]['@value'];
-      const items = _.map(resp[0]['https://schema.repronim.org/order'][0]['@list'],
+      const data = resp[0];
+      const keys = Object.keys(data);
+      let preamble = '';
+      if (keys.indexOf('http://schema.repronim.org/preamble') > -1) {
+        preamble = data['http://schema.repronim.org/preamble'][0]['@value'];
+      }
+      const items = _.map(data['https://schema.repronim.org/order'][0]['@list'],
         i => i['@id']);
       this.setState({ items, status: 'ready', preamble });
     });

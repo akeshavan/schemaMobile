@@ -7,9 +7,9 @@ import {
   Modal,
   StyleSheet,
 } from 'react-native';
-import { List, Appbar, DefaultTheme } from 'react-native-paper';
+import { Appbar, DefaultTheme } from 'react-native-paper';
 import { Activity } from '../Activity';
-
+import { ActivityListItem } from '../ActivityListItem';
 
 /**
  * This is the component for a given applet, which consists of activities
@@ -129,10 +129,7 @@ class Applet extends Component {
   renderListItem(item) {
     return (
       <TouchableOpacity key={item} onPress={() => this.toggleModal(true, item)}>
-        <List.Item
-          title="Activity Name"
-          description={item}
-        />
+        <ActivityListItem url={item} key={item} />
       </TouchableOpacity>
     );
   }
